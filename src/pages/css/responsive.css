@@ -1,0 +1,1198 @@
+@media screen and (max-width:1699px) {
+
+  .container-xxl {
+    max-width: 1320px;
+  }
+
+
+}
+
+@media screen and (max-width:1599px) {
+
+  header .main-menu .navbar-collapse .navbar-nav .nav-item,
+  .top-contact li {
+    padding: 0 10px;
+    font-size: 24px;
+  }
+
+
+}
+
+
+@media screen and (max-width:1399px) {
+
+  .container-xxl {
+    max-width: 1140px;
+  }
+
+  
+
+  header .main-menu .navbar-collapse .navbar-nav .nav-item,
+  .top-contact li {
+    padding: 0 5px;
+    font-size: 21px;
+  }
+
+
+
+}
+
+@media screen and (max-width:1299px) {
+ 
+
+}
+
+@media screen and (max-width:1199px) {
+
+  .container-xxl {
+    max-width: 960px;
+  }
+
+
+  .counselling-service {
+    display: none;
+  }
+
+  .tab-order1 {
+    order: 1
+  }
+
+  .tab-order3 {
+    order: 2
+  }
+
+  .tab-order2 {
+    order: 3
+  }
+
+  header {
+    padding: 0px;
+    height: 100px;
+  }
+
+
+}
+
+
+@media screen and (max-width: 991px) {
+
+  .container-xxl {
+    max-width: 720px;
+  }
+
+  .slider {
+    height: 600px;
+  }
+
+  .autoplay-vidio {
+    background-color: #000;
+  }
+
+  .autoplay-vidio .autoplay-detail {
+    width: 100%;
+  }
+
+  .autoplay-vidio {
+    padding: 0 30px;
+    margin-top: 30px;
+  }
+
+  .best-benefit .member-title {
+    color: #000
+  }
+
+  .fitclub-recruit .application .main-head {
+    font-size: 50px;
+  }
+
+  .fitclub-recruit .application .therory {
+    padding-right: 100px;
+    font-size: 21px;
+    line-height: 31px;
+  }
+
+  .card-single {
+    width: 100%;
+    height: auto;
+  }
+
+  .card-single h2 {
+    position: relative;
+    top: 0;
+    left: 0;
+  }
+
+  .sml-des {
+    color: #c7c7c7;
+  }
+
+  .accordion-button:after {
+    color: #fff
+  }
+
+  .dropus-Line {
+    background-color: #000;
+    height: auto;
+  }
+
+  .dropus-Line .heading-title {
+    color: #fff;
+    font-size: 42px;
+  }
+
+  .autoplay-vidio {
+    margin: 0;
+  }
+
+  .autoplay-vidio .autoplay-detail .video-title {
+    font-size: 72px;
+  }
+
+  .insta-gym {
+    bottom: -65px;
+  }
+
+  .autoplay-vidio:before {
+    width: 92%;
+    left: 30px;
+  }
+
+  .play-video {
+    width: 120px;
+  }
+
+  .pulse {
+    width: 65px;
+    height: 65px;
+  }
+
+  .dot {
+    width: 140px;
+    height: 140px;
+    margin-left: -35px;
+    margin-top: -35px;
+  }
+
+  .round-image {
+    width: 60px;
+  }
+
+  .best-benefit .member-title {
+    color: #000;
+    margin-bottom: 35px;
+  }
+
+  .swiper {
+    padding: 0 30px;
+  }
+
+  .sepline {
+    padding-top: 40px;
+  }
+
+  .fitclub-class {
+    padding: 50px 0;
+  }
+
+  .footer .fitclub-hours {
+    padding: 30px 15px
+  }
+
+  .seporg:before {
+    display: none;
+  }
+
+  .footsep:before {
+    display: none;
+  }
+
+  .play-video {
+    margin-top: 0;
+  }
+
+  .mymsg {
+    margin-bottom: 35px;
+  }
+
+  .novel-approach .fitness-center .physical-title {
+    font-size: 40px;
+  }
+
+  .dropus-Line {
+    height: auto;
+  }
+
+  .footer .gototop {
+    display: none;
+  }
+
+  .fitclub-class .fitclub-title {
+    font-size: 100px;
+    line-height: 110px
+  }
+
+  .fitclub-bighead {
+    font-size: 134px;
+    line-height: 120px;
+  }
+
+  .footer {
+    padding: 20px 0 0;
+  }
+
+  .seporg {
+    padding: 0 25px;
+  }
+
+  .footer .footer-linkrw {
+    height: auto;
+  }
+
+  .footer-link {
+    margin: 15px 0;
+  }
+
+  .footer .footer-address {
+    padding: 30px 15px;
+  }
+
+  .copyright {
+    display: none;
+  }
+
+  .designby {
+    display: none;
+  }
+
+  .tab-hide {
+    display: none;
+  }
+
+  .space-top {
+    margin-top: 70px;
+  }
+
+  .for-resp {
+    text-align: -webkit-center !important;
+  }
+
+  .skill-service .expart-team h2 {
+    font-size: 25px;
+  }
+
+  .box-title {
+    font-size: 18px;
+  }
+
+  .policy-title {
+    font-size: 80px;
+  }
+
+  .franchise-walkthorough .store-walttitle:before{display: none;}
+  .franchise-walkthorough{padding-left: 0;}
+
+}
+
+@media screen and (max-width: 768px) {
+  .satisfaction-review .vill-experince .feedback .emoji {
+  font-size: 45px;
+
+}
+  .logo-img{
+  width: 150px;
+}
+  .feedback{
+    gap: 30px !important;
+  }
+  .thankyou-card{
+    width: 90% !important;
+    margin: auto;
+  }
+  .mobile-banner {
+    display: block;
+  }
+  .desktop-banner {
+    display: none;
+  }
+  body {
+    background-color: #03090c;
+  }
+
+  .container-xxl {
+    max-width: 540px;
+  }
+
+  .slider {
+    height: 400px;
+  }
+
+  #myVideo {
+    display: none;
+  }
+
+  .autoplay-vidio .autoplay-detail {
+    position: relative;
+  }
+
+  .autoplay-vidio {
+    padding: 60px 30px;
+    border-top: 1px solid #242424;
+    border-bottom: 1px solid #242424;
+  }
+
+
+  .mobile-intero {
+    display: block;
+    margin-top: 0px;
+    font-family: 'Kenyan Coffee Rg';
+    font-weight: var(--weight-400);
+    font-size: 95px;
+    color: #fff;
+    line-height: 100px;
+    text-transform: uppercase;
+  }
+
+  .mob-fitness {
+    font-size: 70px;
+  }
+
+  .notphase {
+    font-size: 90px;
+    color: #ff3219;
+  }
+
+  .fitness {
+    padding: 50px 0;
+    position: relative;
+  }
+
+  .fitness:before {
+    content: '';
+    position: absolute;
+    bottom: 35px;
+    left: 0;
+    width: 100px;
+    height: 5px;
+    background-color: #fff;
+    right: 0;
+    margin: 0 auto;
+    border-radius: 5px;
+  }
+
+
+  .mob-hide {
+    display: none !important;
+  }
+
+  .banner-hide {
+    display: none;
+  }
+
+  .tab-order2 {
+    order: 1;
+    text-align: left !important;
+  }
+
+  .tab-order1 {
+    order: 3;
+  }
+
+  .autoplay-vidio .autoplay-detail .video-title {
+    font-size: 85px;
+  }
+
+  .autoplay-vidio video {
+    border-radius: 15px;
+  }
+
+  .insta-gym {
+    bottom: -55px;
+  }
+
+  .play-video {
+    width: 90px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+
+  .pulse {
+    width: 90px;
+    height: 90px;
+  }
+
+  .round-image {
+    width: 100%;
+  }
+
+  .linered:before,
+  .linered:after {
+    width: 160px;
+  }
+
+  .dot {
+    margin-left: -14px;
+    margin-top: -14px;
+    height: 120px;
+    width: 120px;
+  }
+
+  .membership-benefit {
+    margin-top: 30px;
+  }
+
+  .right-text {
+    padding: 0 15px;
+  }
+
+  .best-benefit .member-title {
+    font-size: 72px;
+    color: #fff;
+    line-height: 72px;
+  }
+
+  .play-video {
+    display: none;
+  }
+
+  .building-confidence {
+    height: auto;
+    background-image: none;
+    margin-bottom: 50px;
+  }
+
+
+  .spirit-text {
+    background-color: #000;
+    color: #fff;
+  }
+
+  .swiper {
+    padding: 0 30px
+  }
+
+  .swiper-slide img {
+    margin: 0;
+  }
+
+  .swiper-slide {
+    background-color: transparent;
+  }
+
+  .sepline {
+    border-top: 1px solid #01080e;
+    padding-top: 20px;
+  }
+
+  .fitclub-video {
+    padding: 80px 0;
+  }
+
+  .fitclub-video .changing-life {
+    color: #fff;
+    padding: 0;
+  }
+
+  .lifeclube {
+    font-size: 80px;
+  }
+
+  .prof-here {
+    margin-left: 0;
+  }
+
+  .mymsg:before {
+    top: -263px;
+    left: -75px;
+    background-size: 100%;
+    width: 50px;
+    height: 100px;
+    display: none;
+  }
+
+  .mymsg:after {
+    top: -75px;
+    right: -75px;
+    background-size: 100%;
+    width: 50px;
+    height: 100px;
+    display: none;
+  }
+
+  .mymsg {
+    padding-right: 0px;
+    padding-left: 0px;
+    color: #fff;
+    font-size: 24px;
+    line-height: 36px;
+  }
+
+  .gradient {
+    background-image: none;
+  }
+
+  .novel-approach {
+    background-color: transparent;
+  }
+
+  .novel-approach .novel-training .noval-title {
+    font-size: 72px;
+    color: #fff
+  }
+
+  .navyblue-bg {
+    background-color: #fff;
+    color: #03090c;
+  }
+
+  .novel-approach .fitness-center .physical-title {
+    color: #fff;
+  }
+
+  .novel-approach .fitness-center {
+    padding: 0px
+  }
+
+  .novel-approach .fitness-center .physical-title {
+    line-height: 48px;
+    font-size: 36px;
+    margin-top: 15px;
+  }
+
+  .seventy-five {
+    font-size: 42px;
+  }
+
+  .novel-approach .fitness-center .doortodoor {
+    color: #fff;
+    font-size: 20px;
+    line-height: 28px;
+  }
+
+  .more-infobtn .btn-wave {
+    border: 1px solid #fff;
+    color: #fff
+  }
+
+  .more-infobtn::before {
+    background-color: #fff;
+  }
+
+  .fitclub-class {
+    padding: 50px 0;
+  }
+
+  .fitclub-class .fitclub-title {
+    font-size: 72px;
+    color: #fff
+  }
+
+  .fitclub-bighead {
+    font-size: 124px;
+    line-height: 90px;
+  }
+
+  .gap-50 {
+    display: none;
+  }
+
+  .body-workout {
+    color: #fff
+  }
+
+  .sml-grybx {
+    margin-top: 15px;
+    margin-left: 0;
+  }
+
+  .exclusive-studio {
+    color: #fff;
+    font-size: 30px;
+    margin-left: 0;
+  }
+
+  .accordion-item {
+    background-color: transparent;
+  }
+header{
+  height: 60px;
+  /* background-color: white; */
+}
+.navbar-toggler-icon{
+  display: none;
+}
+header img{
+ position: absolute;
+ top: 50%;
+ left: 50%;
+ transform: translate(-50% , -50%);
+  /* background-color: white; */
+}
+  .fitclub-class .accordion-header {
+    margin-left: 0;
+  }
+
+  .accordion-body {
+    padding: 0px
+  }
+
+  .classes-list li span {
+    background-color: #000;
+    color: #fff;
+    font-size: 78px;
+    line-height: 92px;
+  }
+
+  .classes-list {
+    margin-top: 0;
+  }
+
+  .bhaskar {
+    margin-bottom: 15px;
+  }
+
+  .classes-list li:before {
+    background-color: #fff;
+  }
+
+  .classes-list li .neeraj:before {
+    background-color: #fff;
+  }
+
+  .open-l {
+    font-size: 78px;
+    line-height: 92px;
+    color: #000;
+    display: none;
+  }
+
+  .fitclub-class .accordion-button {
+    background-color: #000;
+  }
+
+  .classes-list li:before {
+    width: 95%;
+    right: 10px;
+  }
+
+  .join-fitclub {
+    position: relative;
+    right: 0;
+    top: 0;
+  }
+
+  .dropus-Line {
+    background-color: transparent;
+    height: auto;
+    padding: 30px 0;
+  }
+
+  .dropus-Line .heading-title {
+    color: #fff;
+    font-size: 36px;
+    line-height: 42px;
+  }
+
+  .accordion-button:not(.collapsed) {
+    color: #fff
+  }
+
+  .designation li {
+    color: #fff
+  }
+
+  .card-single .thumb {
+    height: 400px;
+  }
+
+  .card-single h2 {
+    font-size: 50px;
+    line-height: 70px;
+  }
+
+  .card-single h2 span {
+    font-size: 100px;
+  }
+
+  .seporg:before {
+    display: none;
+  }
+
+  .footer-link {
+    display: block !important;
+  }
+
+  .footer .footer-linkrw {
+    height: auto;
+    padding: 15px 0;
+  }
+
+  .seporg {
+    margin-bottom: 15px;
+  }
+
+  .footer .footer-link li {
+    display: block;
+  }
+
+  .footer .footer-link li:before {
+    display: none;
+  }
+
+  .footer .fitclub-hours {
+    padding: 0 15px
+  }
+
+  .top-txt {
+    text-align: right;
+    right: 15px;
+  }
+
+  .newsletter .subscribe {
+    width: 35%;
+  }
+
+  .footsep:before {
+    display: none;
+  }
+
+  .owl-prev:before,
+  .owl-next:before {
+    display: none;
+  }
+
+  .meet-your-coach .accordion-button {
+    background-color: #000;
+    color: #fff
+  }
+
+  .card-single h2 {
+    color: #fff
+  }
+
+  .person-training .noval-title {
+    font-size: 72px;
+  }
+
+  .person-training .schedule-consult {
+    font-size: 60px;
+  }
+.satisfaction-review .vill-experince{
+padding: 15px;
+}
+.love-hve{
+  font-size: 19px;
+  margin-bottom: 10px;
+}
+.career-field{
+  font-size: 20px;
+  padding-block: 13px;
+}
+.sumit-btn{
+
+  justify-content: center;
+  display: flex;
+  align-items: center;
+}
+.sumit-btn .send_btn{
+  margin-top: 15px !important;
+width: 50% !important;
+}
+.franchise-txtarea{
+  font-size: 20px;
+}
+.career-field-2{
+  font-size: 19px;
+}
+  .career-title,
+  .contact-title {
+    font-size: 80px;
+    line-height: 100px;
+  }
+  .next-vision{
+    font-size: 20px;
+  }
+  .satisfaction-review{
+    padding-top: 0;
+  }
+  .mt-gp{
+    margin-top: 0;
+  }
+
+  .fitclub-recruit .application .therory {
+    padding-right: 0;
+  }
+
+  .footer .fitclub-newsletter {
+    padding: 30px 15px;
+  }
+
+  .trus-us {
+    width: 100%;
+    float: none;
+    background-color: transparent;
+    box-shadow: none;
+    margin-top: 0;
+    padding: 0;
+  }
+
+  .trus-us .fitness-journey {
+    color: #fff;
+    margin-top: 0;
+  }
+
+  .trus-us .joinus {
+    background-color: #ff3c00;
+    color: #fff;
+    border-radius: 10px;
+  }
+
+  .best-benefit {
+    padding: 0 15px;
+  }
+
+  .fitclub-video .owl-theme .owl-nav {
+    display: none;
+  }
+
+  .meet-your-coach {
+    padding: 50px 15px;
+  }
+
+  .top-contact li:last-child {
+    display: none;
+  }
+
+  .person-training .longevity {
+    font-size: 24px;
+    line-height: 36px;
+  }
+
+  .mindset-concept p {
+    font-size: 24px;
+    line-height: 36px;
+  }
+
+  .footer .footer-address {
+    padding: 15px 15px;
+  }
+
+  .footer-link {
+    margin: 0;
+  }
+
+  .contact {
+    background-color: #010509;
+    padding: 50px 0;
+  }
+
+  .sep-bgin {
+    background-color: #010509;
+    padding: 30px 15px;
+  }
+
+  .contact .inquire-information {
+    font-size: 24px;
+    line-height: 36px;
+  }
+
+  .contact .ears-all {
+    font-size: 48px;
+  }
+
+  .career .accordion-button {
+    font-size: 23px;
+  }
+
+  .career .accordion-body {
+    padding: 15px;
+  }
+
+  .career .tp-rw {
+    margin-top: 0;
+  }
+
+  .career input {
+    margin-bottom: 15px;
+  }
+
+  .career {
+    padding: 0 15px;
+  }
+
+  .fitclub-recruit .application {
+    background-color: transparent;
+    padding: 50px 0;
+  }
+
+  .meet-heading-coach {
+    position: relative;
+    color: #fff
+  }
+
+  .billanths {
+    margin-top: 30px;
+  }
+
+  #flip>div>div {
+    color: #fff
+  }
+
+  #flip {
+    margin-left: 0;
+    display: block;
+  }
+
+  .mainDiv {
+    position: relative;
+    left: 0;
+  }
+
+  .mainDiv .one,
+  .mainDiv .two {
+    display: none;
+  }
+
+  .fitclub-recruit {
+    padding: 0 15px;
+  }
+
+  .fitclub-pop .modal-body {
+    padding: 15px;
+  }
+
+  .fs-70 {
+    font-size: 48px;
+  }
+
+  .fs-31 {
+    font-size: 24px;
+  }
+
+  .contact form {
+    padding: 0 15px
+  }
+
+  .contact .mt-4 {
+    margin: 0 !important;
+  }
+
+  .policy-title {
+    line-height: 110px;
+  }
+
+
+  .img-box2:after {
+    right: 0;
+  }
+
+  .img-box2:before {
+    left: 0;
+  }
+
+  .about-us-title {
+    font-size: 72px;
+  }
+
+  .increase-business {
+    font-size: 35px;
+  }
+
+  .bottom {
+    margin-bottom: 15px;
+  }
+
+  #style-4 {
+    overflow: hidden;
+    margin-bottom: 30px;
+    height: auto;
+  }
+
+  .pr-logo li img {
+    width: 100px;
+  }
+
+  .team-mt {
+    margin-top: 0;
+  } 
+
+  .team-box{margin-top: 30px;}
+
+  .platiniumline{width: 250px; padding: 20px;}
+  .vcKbyq__line1{font-size: 50px; line-height: 50px;}
+  .vcKbyq__line2{font-size: 36px; margin-top: 0; line-height: 24px;}
+  .vcKbyq__line3 {font-size: 18px; line-height: 24px;}
+
+  .franchise-gearup {
+    padding: 25px 0;
+  }
+
+  .franchise-corevalue {
+    padding: 25px 0;
+  }
+
+  .supply-chain{margin-top: 0;}
+  .mb-eligibility{margin-top: 20px;}
+
+  .platinium{flex-direction: column;}
+  .platiniumline{position: relative;}
+  .platiniumline{width: 100%; height: auto;}
+
+}
+
+@media screen and (max-width: 575px) {
+
+  .container-xxl {
+    max-width: 100%;
+  }
+
+  .autoplay-vidio .autoplay-detail .video-title {
+    font-size: 60px;
+    line-height: 80px;
+  }
+
+  .trus-us {
+    width: 350px;
+  }
+
+  .mymsg:before,
+  .mymsg:after {
+    width: 40px;
+    background-size: 100%;
+  }
+
+  .fitclub-video .changing-life {
+    padding: 0 15px
+  }
+
+  .f-letter {
+    margin-left: 0;
+  }
+
+  .fitclub-video {
+    padding: 50px 0;
+  }
+
+  .lifeclube {
+    font-size: 50px;
+    line-height: 50px;
+  }
+
+  .fitclub-video .changing-life {
+    font-size: 42px;
+    line-height: 48px;
+  }
+
+  .mymsg:before {
+    top: -98px;
+  }
+
+  .novel-approach .novel-training .noval-title {
+    margin-top: 0px;
+  }
+
+  .rw-sep {
+    margin-top: 25px;
+  }
+
+  .novel-approach .fitness-center .doortodoor {
+    color: #fff;
+    font-size: 24px;
+    line-height: 36px;
+  }
+
+  .d-block {
+    display: none !important;
+  }
+
+  .person-training .noval-title {
+    font-size: 55px;
+    line-height: 65px;
+  }
+
+  /* .worktell {
+  padding: 0;
+} */
+
+  .career-title,
+  .contact-title {
+    font-size: 46px;
+    
+  }
+
+  .mymsg {
+    padding-right: 15px;
+    padding-left: 15px;
+    line-height: 30px;
+  }
+
+  .novel-approach .novel-training .noval-title {
+    font-size: 72px;
+    line-height: 80px;
+  }
+
+  .novel-approach .fitness-center {
+    padding: 0px 15px;
+  }
+
+  .fitclub-class {
+    padding: 50px 15px;
+  }
+
+  .body-workout {
+    font-size: 24px;
+  }
+
+  .fitclub-recruit .application .main-head {
+    font-size: 42px;
+    line-height: 42px;
+  }
+
+  .therory {
+    margin-top: 10px;
+  }
+
+  .dropus-Line {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+  .person-training {
+    padding: 50px 15px;
+  }
+
+  .mindset-concept {
+    padding: 30px 15px;
+  }
+
+  .mobile-number {
+    font-size: 48px;
+    line-height: 48px;
+  }
+
+  .contact input {
+    margin-bottom: 15px;
+  }
+
+  .img-box2 {
+    width: 100%;
+  }
+
+  .policy-title {
+    font-size: 40px;
+    line-height: 60px !important;
+  }
+
+  .about-us-title {
+    font-size: 55px;
+    line-height: 65px;
+  }
+
+  .pr-logo {
+    flex-direction: column;
+  }
+  .pr-logo li{margin: 5px 0; background-color: #fff; text-align: center;}
+
+  .pr-logo li img {
+    width: 150px;
+  }
+}
