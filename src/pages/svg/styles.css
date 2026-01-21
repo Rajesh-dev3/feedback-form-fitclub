@@ -36,3 +36,11 @@
   fill: red; /* selected */
     /* hover/selected zoom */
 }
+
+
+.form-select:disabled {
+background-color: transparent !important;
+}
+.selected{
+    transform: scale(1.3); /* 120% size */
+}

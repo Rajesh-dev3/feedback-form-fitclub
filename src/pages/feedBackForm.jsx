@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import "./css/bootstrap.min.css";
 import "./css/style.css";
 import "./css/responsive.css";
@@ -18,6 +18,7 @@ import { FaUpload } from "react-icons/fa";
 import banner from "../assets/Feedback-Image.jpg";
 import mobileBanner from "../assets/image-Mob.jpg";
 import { toast } from "react-toastify";
+import VoiceRecorder from "../component/voiceRecording";
 
 const FeedbackPage = () => {
   const { branchId } = useParams();
@@ -25,37 +26,39 @@ const FeedbackPage = () => {
   const [images, setImages] = useState([]);
   const [responseImages, setResponseImages] = useState([]);
   const [trig, { data: formResponse }] = useAddFeedbackMutation();
+  const [voiceNote, setVoiceNote] = useState(null); // for audio blob
+  const formRef = useRef(null);
 
   const [formData, setFormData] = useState({
     gymHygiene: "",
-    staffBehaivior: "",
+    staffBehavior: "",
     images: responseImages,
     customerName: "",
-    countryCode: "+91", // default
+    countryCode: "+91",
     mobileNumber: "",
     email: "",
     branchId: branchId,
-    department: "",
+    departmentId: "",
     messageText: "",
   });
 
   const [filePreview, setFilePreview] = useState(null);
   const [countryCodes, setCountryCodes] = useState([]);
 
-  // ✅ Country Code fetch
+  // Fetch country codes
   useEffect(() => {
     const fetchCodes = async () => {
       try {
-        const res = await fetch("https://restcountries.com/v3.1/all?fields=idd,name");
+        const res = await fetch(
+          "https://restcountries.com/v3.1/all?fields=idd,name"
+        );
         const data = await res.json();
-
         const codes = data
           .filter((c) => c.idd?.root && c.idd?.suffixes?.length)
           .map((c) => ({
             name: c.name.common,
             code: `${c.idd.root}${c.idd.suffixes[0]}`,
           }));
-
         setCountryCodes(codes.sort((a, b) => a.name.localeCompare(b.name)));
       } catch (err) {
         console.error("Error fetching country codes:", err);
@@ -63,6 +66,13 @@ const FeedbackPage = () => {
     };
     fetchCodes();
   }, []);
+
+  const scrollToRef = (id) => {
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth", block: "center" });
+    }
+  };
 
   const handleChange = (e) => {
     const { name, value, type, files } = e.target;
@@ -80,40 +90,59 @@ const FeedbackPage = () => {
       if (name === "customerName") {
         newValue = value.replace(/[^a-zA-Z\s]/g, "");
       }
-
       if (name === "mobileNumber") {
         newValue = value.replace(/[^0-9]/g, "");
       }
 
-      setFormData({ ...formData, [name]: newValue });
+      // Map UI fields to backend fields
+      if (name === "staffBehaivior") {
+        setFormData({ ...formData, staffBehavior: newValue });
+      } else if (name === "department") {
+        // Find department id by name
+        const dept = departmentList?.rows?.find((d) => d.name === newValue);
+        setFormData({ ...formData, departmentId: dept?.id || "" });
+      } else {
+        setFormData({ ...formData, [name]: newValue });
+      }
     }
   };
 
-  // ✅ Validation
+  // Validation
   const validateForm = () => {
     if (!formData.gymHygiene) {
       toast.error("Please rate gym hygiene before submitting");
+      scrollToRef("gymQuestion");
       return false;
     }
-    if (!formData.staffBehaivior) {
+    if (!formData.staffBehavior) {
       toast.error("Please rate staff behavior before submitting");
+      scrollToRef("staffQuestion");
       return false;
     }
-    if (!formData.department) {
+    if (!formData.departmentId) {
       toast.error("Please select a department");
+      scrollToRef("departmentQuestion");
+      return false;
+    }
+    if (!formData.messageText || !formData.messageText.trim()) {
+      toast.error("Please write your feedback message");
+      scrollToRef("departmentQuestion");
       return false;
     }
     if (!formData.customerName.trim()) {
       toast.error("Name is required");
+      scrollToRef("contactSection");
       return false;
     }
     if (!formData.mobileNumber || formData.mobileNumber.length < 5) {
       toast.error("Enter a valid mobile number");
+      scrollToRef("contactSection");
       return false;
     }
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!formData.email || !emailRegex.test(formData.email)) {
       toast.error("Enter a valid email address");
+      scrollToRef("contactSection");
       return false;
     }
     return true;
@@ -121,15 +150,20 @@ const FeedbackPage = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
     if (!validateForm()) return;
-
-    const finalData = {
-      ...formData,
+    // Prepare payload for backend
+    const payload = {
+      customerName: formData.customerName,
+      email: formData.email,
+      mobileNumber: formData.mobileNumber,
+      branchId: formData.branchId,
+      departmentId: formData.departmentId,
+      messageText: formData.messageText,
       images: responseImages,
+      gymHygiene: formData.gymHygiene,
+      staffBehavior: formData.staffBehavior,
     };
-
-    trig(finalData);
+    trig(payload);
   };
 
   const emojiOptions = [
@@ -144,12 +178,10 @@ const FeedbackPage = () => {
 
   const handleImageChange = (e) => {
     const files = Array.from(e.target.files);
-
     const newImages = files.map((file) => ({
       file,
       preview: URL.createObjectURL(file),
     }));
-
     setImages((prev) => [...prev, ...newImages]);
 
     if (files.length) {
@@ -170,9 +202,7 @@ const FeedbackPage = () => {
     setResponseImages((prev) => {
       const updated = [...prev];
       const [removed] = updated.splice(index, 1);
-      if (removed) {
-        trigge(removed);
-      }
+      if (removed) trigge(removed);
       return updated;
     });
   };
@@ -191,7 +221,7 @@ const FeedbackPage = () => {
   }, [formResponse]);
 
   return (
-    <div>
+    <div ref={formRef}>
       {/* Header */}
       <header>
         <div className="container-fluid">
@@ -218,7 +248,12 @@ const FeedbackPage = () => {
 
             <div className="col-5 col-sm-5 col-md-12 col-xl-2 text-center tab-order2">
               <a href="https://fitclub.in/">
-                <img src={logo} width="300" alt="Fitclub Logo" className="logo-img" />
+                <img
+                  src={logo}
+                  width="300"
+                  alt="Fitclub Logo"
+                  className="logo-img"
+                />
               </a>
             </div>
           </div>
@@ -226,8 +261,12 @@ const FeedbackPage = () => {
       </header>
 
       {/* Banner */}
-    <div className="banner">
-        <img src={mobileBanner} alt="Mobile banner" className="mobile-banner" />
+      <div className="banner">
+        <img
+          src={mobileBanner}
+          alt="Mobile banner"
+          className="mobile-banner"
+        />
         <img src={banner} alt="Desktop banner" className="desktop-banner" />
       </div>
 
@@ -238,17 +277,26 @@ const FeedbackPage = () => {
             <div className="row">
               {/* Hygiene */}
               <div className="col-lg-6">
-                <div className="vill-experince mb-4 mb-lg-0">
+                <div className="vill-experince mb-4 mb-lg-0" id="gymQuestion">
                   <h2 className="love-hve">
-                    How satisfied are you with the cleanliness and hygiene in the gym?
+                    How satisfied are you with the cleanliness and hygiene in
+                    the gym?
                   </h2>
                   <div className="feedback">
                     {emojiOptions.map((item, idx) => (
                       <label
                         key={idx}
                         className={`emoji ${
-                          Number(formData.gymHygiene) === item.val ? "selected" : ""
+                          Number(formData.gymHygiene) === item.val
+                            ? "selected"
+                            : "light-" + item.colorClass
                         }`}
+                        onClick={(e) => {
+                          if (!validatePreviousFields("gymHygiene")) {
+                            e.preventDefault();
+                            return;
+                          }
+                        }}
                       >
                         <input
                           type="radio"
@@ -256,6 +304,7 @@ const FeedbackPage = () => {
                           value={item.val}
                           checked={Number(formData.gymHygiene) === item.val}
                           onChange={handleChange}
+                          // onFocus={handleFocus}
                           style={{ display: "none" }}
                         />
                         <span className="emoji-icon">{item.icon}</span>
@@ -267,17 +316,29 @@ const FeedbackPage = () => {
 
               {/* Staff */}
               <div className="col-lg-6">
-                <div className="vill-experince mb-4 mb-lg-0">
+                <div
+                  className="vill-experince mb-4 mb-lg-0"
+                  id="staffQuestion"
+                >
                   <h2 className="love-hve">
-                    How satisfied are you with the Staff Behavior & Support in the gym?
+                    How satisfied are you with the Staff Behavior & Support in
+                    the gym?
                   </h2>
                   <div className="feedback">
                     {emojiOptions.map((item, idx) => (
                       <label
                         key={idx}
                         className={`emoji ${
-                          Number(formData.staffBehaivior) === item.val ? "selected" : ""
+                          Number(formData.staffBehaivior) === item.val
+                            ? "selected"
+                            : "light-" + item.colorClass
                         }`}
+                        onClick={(e) => {
+                          if (!validatePreviousFields("staffBehaivior")) {
+                            e.preventDefault();
+                            return;
+                          }
+                        }}
                       >
                         <input
                           type="radio"
@@ -296,7 +357,10 @@ const FeedbackPage = () => {
             </div>
 
             {/* Department + Comment */}
-            <div className="row mt-gp">
+            <div
+              className="row mt-gp"
+              id="departmentQuestion"
+            >
               <div className="col-lg-8 offset-lg-2">
                 <h3 className="next-vision text-center">
                   Please give specific inputs for better service
@@ -309,11 +373,10 @@ const FeedbackPage = () => {
                       className="career-field-2 form-select"
                       value={formData.department}
                       onChange={handleChange}
-                      required
                     >
                       <option value="">Select Department</option>
                       {departmentList?.rows?.map((item) => (
-                        <option key={item?.name} value={item?.name}>
+                        <option key={item?.id || item?.name} value={item?.name}>
                           {item?.name}
                         </option>
                       ))}
@@ -323,6 +386,8 @@ const FeedbackPage = () => {
                     <label className="form-label mt-3 next-vision">
                       Share Your Thoughts
                     </label>
+                    <div className="text-area-div">
+
                     <textarea
                       name="messageText"
                       className="franchise-txtarea w-100"
@@ -333,6 +398,37 @@ const FeedbackPage = () => {
                       autoCorrect="off"
                       spellCheck="false"
                     />
+                    {/* 🎙️ Voice Recorder */}
+                    <div className="voice-icon">
+
+<VoiceRecorder
+  onAudioRecorded={(blob, url, transcript) => {
+    setVoiceNote(blob);
+
+    if (transcript) {
+      setFormData((prev) => {
+        const updatedText = prev.messageText
+          ? `${prev.messageText} ${transcript}`
+          : transcript;
+
+        return {
+          ...prev,
+          messageText: updatedText,
+        };
+      });
+    }
+  }}
+    // 👇 This is NEW — live update
+  onTranscriptLiveUpdate={(liveTranscript) => {
+    setFormData((prev) => ({
+      ...prev,
+      messageText: liveTranscript,
+    }));
+  }}
+/>
+                    </div>
+                    </div>
+
                   </div>
 
                   {/* Images */}
@@ -381,7 +477,10 @@ const FeedbackPage = () => {
                       ))}
                     </div>
 
-                    <label className="btn" style={{ background: "#ff3c00", color: "white" }}>
+                    <label
+                      className="btn"
+                      style={{ background: "#ff3c00", color: "white" }}
+                    >
                       <FaUpload />
                       <input
                         type="file"
@@ -395,7 +494,10 @@ const FeedbackPage = () => {
                 </div>
 
                 {/* Contact Details */}
-                <div className="feedback-form row mt-4">
+                <div
+                  className="feedback-form row mt-4"
+                  id="contactSection"
+                >
                   <div className="col-lg-12 col-md-12 col-12 mb-3">
                     <div className="row">
                       <div className="col-12 col-sm-6 mb-3">
@@ -406,15 +508,21 @@ const FeedbackPage = () => {
                           placeholder="Full Name"
                           value={formData.customerName}
                           onChange={handleChange}
-                          required
                         />
                       </div>
                       <div className="col-12 col-sm-6 mb-3 d-flex">
                         <select
                           name="countryCode"
                           className="form-select"
-                          defaultValue={"+91"}
-                          style={{ maxWidth: "70px", marginRight: "5px",background:"transparent",color:"white",    padding: ".375rem 0rem .375rem .75rem",border:"1px solid #34373b" }}
+                          defaultValue="+91"
+                          style={{
+                            maxWidth: "70px",
+                            marginRight: "5px",
+                            background: "transparent",
+                            color: "white",
+                            padding: ".375rem 0rem .375rem .75rem",
+                            border: "1px solid #34373b",
+                          }}
                           value={formData.countryCode}
                           onChange={handleChange}
                         >
@@ -431,7 +539,6 @@ const FeedbackPage = () => {
                           placeholder="Mobile No"
                           value={formData.mobileNumber}
                           onChange={handleChange}
-                          required
                         />
                       </div>
                     </div>
@@ -445,11 +552,13 @@ const FeedbackPage = () => {
                           placeholder="Email"
                           value={formData.email}
                           onChange={handleChange}
-                          required
                         />
                       </div>
                       <div className="col-12 col-sm-6 mb-2 sumit-btn">
-                        <button type="submit" className="send_btn btn btn-black w-100">
+                        <button
+                          type="submit"
+                          className="send_btn btn btn-black w-100"
+                        >
                           Submit
                         </button>
                       </div>

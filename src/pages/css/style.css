@@ -902,6 +902,15 @@ header .main-menu .navbar-collapse .navbar-nav .nav-item:hover:after {
   font-size: 31px;
   text-transform: none !important;
 }
+.text-area-div{
+  position: relative;
+
+}
+.voice-icon{
+  position: absolute;
+  right: 10px;
+  bottom: 15px;
+}
 
 .form-mt {
   margin-top: 15px;
@@ -947,3 +956,10 @@ header .main-menu .navbar-collapse .navbar-nav .nav-item:hover:after {
   top: 0;
   opacity: 0;
 }
+
+
+
+/* Add this in your CSS */
+.light-good .smile-icon path { fill: #b6f5b6 !important;}
+.light-neutral .emoji-icon-neutral path { fill: #f9f3b4 !important; }
+.light-bad .emoji-icon-bad path { fill: #fa9b9b !important;}
