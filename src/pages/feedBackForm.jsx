@@ -39,6 +39,7 @@ const FeedbackPage = () => {
     email: "",
     branchId: branchId,
     departmentId: "",
+    department: "",
     messageText: "",
   });
 
@@ -98,9 +99,13 @@ const FeedbackPage = () => {
       if (name === "staffBehaivior") {
         setFormData({ ...formData, staffBehavior: newValue });
       } else if (name === "department") {
-        // Find department id by name
+        // Find department id by name, or use 'Other' if Other is selected
         const dept = departmentList?.rows?.find((d) => d.name === newValue);
-        setFormData({ ...formData, departmentId: dept?.id || "" });
+        setFormData({ 
+          ...formData, 
+          departmentId: dept?.id || (newValue === "Other" ? "Other" : ""),
+          department: newValue
+        });
       } else {
         setFormData({ ...formData, [name]: newValue });
       }
@@ -119,7 +124,7 @@ const FeedbackPage = () => {
       scrollToRef("staffQuestion");
       return false;
     }
-    if (!formData.departmentId) {
+    if (!formData.departmentId && !formData.department) {
       toast.error("Please select a department");
       scrollToRef("departmentQuestion");
       return false;
@@ -375,11 +380,16 @@ const FeedbackPage = () => {
                       onChange={handleChange}
                     >
                       <option value="">Select Department</option>
-                      {departmentList?.rows?.map((item) => (
-                        <option key={item?.id || item?.name} value={item?.name}>
-                          {item?.name}
-                        </option>
-                      ))}
+                      {departmentList?.rows?.map((item) => {
+                        if(item?.status === "active") {
+                          return (
+                            <option key={item?.id || item?.name} value={item?.name}>
+                              {item?.name}
+                            </option>
+                          );
+                        }
+                        return null;
+                      })}
                       <option value="Other">Other</option>
                     </select>
 
